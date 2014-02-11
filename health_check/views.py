@@ -1,8 +1,10 @@
 from django.http import HttpResponse, HttpResponseServerError
 from django.template import loader
+from django.views.decorators.cache import never_cache
 from health_check.plugins import plugin_dir
 
 
+@never_cache
 def home(request):
     plugins = []
     working = True
